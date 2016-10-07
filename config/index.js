@@ -6,7 +6,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/react-template/',
     productionSourceMap: false,
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
@@ -15,7 +15,7 @@ module.exports = {
     env: require('./dev.env.js'),
     port: 8080,
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/react-template/',
     proxyTable: {}
   }
 }
