@@ -52,13 +52,13 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'vendor',
       minChunks: function (module, count) {
         // any required modules inside node_modules are extracted to vendor
-        return {
+        return (
           module.resource &&
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
             path.join(__dirname, '../node_modules')
           ) === 0
-        }
+        )
       }
     }),
     // extract webpack runtime and module manifest to its own file in order to
