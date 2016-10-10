@@ -4,6 +4,7 @@ var merge = require('webpack-merge')
 var utils = require('./utils.js')
 var baseWebpackConfig = require('./webpack.base.conf.js')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -12,7 +13,14 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    loaders: utils.styleLoaders()
+    // loaders: utils.styleLoaders()
+    loaders: [
+      {
+        test: /\.less$/,
+        loaders: ['style', 'css', 'less'],
+        include: path.join(__dirname, '../src')
+      }
+    ]
   },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
