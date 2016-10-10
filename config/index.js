@@ -13,7 +13,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env.js'),
-    port: 8080,
+    port: 6060,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/react-template/',
     proxyTable: {}
