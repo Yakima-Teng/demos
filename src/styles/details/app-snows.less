@@ -1,0 +1,32 @@
+.app-snows {
+  .snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .8);
+    transform: rotate(0deg);
+    border-radius: 70%;
+    animation: float 800ms linear 0ms infinite;
+    opacity: 1;
+  }
+}
+@keyframes float {
+  0% {
+    top: 0;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    top: 60%;
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+}

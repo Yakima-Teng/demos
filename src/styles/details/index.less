@@ -1,0 +1,31 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  font-size: 0;
+  .li {
+    display: inline-block;
+    font-size: 14px;
+    width: 25%;
+    box-sizing: border-box;
+    border: solid #fff;
+    border-width: 1px 0 1px 1px;
+    &:last-child {
+      border-right-width: 1px;
+    }
+    .title {
+      display: block;
+      color: #ff0;
+      background-color: rgba(80, 80, 80, .8);
+      line-height: 50px;
+      font-size: 16px;
+      transition: 300ms all linear 0ms;
+      text-align: center;
+      &:hover {
+        background-color: rgba(0, 0, 0, .8);
+      }
+    }
+  }
+}
