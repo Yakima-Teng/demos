@@ -17,6 +17,10 @@ export default class appHeader extends React.Component {
         {
           title: '3d幻灯-JS',
           url: 'slider-3d-js'
+        },
+        {
+          title: '说明及其他',
+          url: 'note'
         }
       ]
     }
@@ -25,7 +29,7 @@ export default class appHeader extends React.Component {
     const lis = this.state.menus.map(item => {
       return (
         <li className="li" key={item.url}>
-          <Link to={`/${item.url}`}>{item.title}</Link>
+          <Link className="title" to={`/${item.url}`}>{item.title}</Link>
         </li>
       )
     })
@@ -34,9 +38,6 @@ export default class appHeader extends React.Component {
         <nav className="nav">
           <ul className="ul">
             {lis}
-            <li className="item">
-              <a href="#" className="title">说明及其他</a>
-            </li>
           </ul>
         </nav>
       </header>
