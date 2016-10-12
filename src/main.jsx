@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import './styles/importer.less'
-import {Router, Route, hashHistory} from 'react-router'
+import {Router, IndexRoute, Route, hashHistory} from 'react-router'
 import AppHeader from './components/app-header.jsx'
 import AppSnows from './components/app-snows.jsx'
 import AppLoading from './components/app-loading.jsx'
@@ -38,6 +38,7 @@ class AppLayout extends React.Component {
 
 const routes = (
   <Route path="/" component={AppLayout}>
+    <IndexRoute component={Slider2dJs} />
     <Route
       path="/slider-2d-js"
       component={Slider2dJs}
