@@ -5,6 +5,7 @@ var utils = require('./utils.js')
 var baseWebpackConfig = require('./webpack.base.conf.js')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
+var OpenBrowserWebpackExpressPlugin = require('open-browser-webpack-express-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -37,6 +38,9 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    new OpenBrowserWebpackExpressPlugin({
+      url: 'http://localhost:' + config.dev.port + config.dev.assetsPublicPath + 'index.html'
     })
   ]
 })
