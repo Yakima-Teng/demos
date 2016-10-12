@@ -1,4 +1,5 @@
 import React from 'react'
+import uuid from 'node-uuid'
 
 export default class appHeader extends React.Component {
   constructor (props) {
@@ -76,7 +77,7 @@ export default class appHeader extends React.Component {
   render () {
     const lis1 = this.state.images16.map(item => {
       return (
-        <li className="photo" key={item.url} style={{
+        <li className="photo" key={uuid.v4()} style={{
           display: this.isCurIndexPicture(item.url) ? 'block' : 'none'
         }} onMouseEnter={this.stopInterval()} onMouseLeave={this.startInterval()}>
           <img className="photo-img" src={item.url} alt={item.title} />
@@ -84,9 +85,10 @@ export default class appHeader extends React.Component {
       )
     })
     const lis2 = this.state.images16.map(item => {
+      // 如果不用括号的话，'point' + this.isCurIndexPicture(item.url)整体会作为一个表达式
       return (
         <div
-          key={item.url}
+          key={uuid.v4()}
           className={'point' + (this.isCurIndexPicture(item.url) ? ' scale' : '')}
           style={{
             backgroundImage: `url(${item.url})`
