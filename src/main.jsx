@@ -3,12 +3,12 @@ import ReactDom from 'react-dom'
 import './styles/importer.less'
 import {Router, Route, hashHistory} from 'react-router'
 import AppHeader from './components/app-header.jsx'
-import AppFooter from './components/app-footer.jsx'
 import AppSnows from './components/app-snows.jsx'
 import AppLoading from './components/app-loading.jsx'
 import Slider2dJs from './views/slider-2d-js.jsx'
 import Slider3dCss from './views/slider-3d-css.jsx'
 import Slider3dJs from './views/slider-3d-js.jsx'
+import Note from './views/note.jsx'
 
 /**
  * *********************************************************************************
@@ -29,7 +29,6 @@ class AppLayout extends React.Component {
         <div className="app-content">
           {this.props.children}
         </div>
-        <AppFooter />
         <AppSnows />
         <AppLoading />
       </div>
@@ -52,8 +51,12 @@ const routes = (
       component={Slider3dJs}
     />
     <Route
+      path="/note"
+      component={Note}
+    />
+    <Route
       path="*"
-      component={Slider3dJs}
+      component={Slider2dJs}
     />
   </Route>
 )
