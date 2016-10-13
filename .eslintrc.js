@@ -1,31 +1,90 @@
 module.exports = {
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
+  "extends": "plugin:react/recommended",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "__DEV__": true,
+    "__SERVER__": true
   },
   "plugins": [
-    "react"
+    "react",
+    "promise"
   ],
   "rules": {
-    "no-console": 0,
-    "new-cap": 0,
-    "strict": 0,
-    "no-underscore-dangle": 0,
-    // "no-unused-vars": 0,
-    "no-use-before-define": 0,
+    "react/jsx-uses-vars": 1,
+    "react/prop-types": [1, { ignore: ["children"] }],
+
+    "semi": 0,
+    "key-spacing": 1,
+    "curly": 0,
+    "consistent-return": 0,
+    "space-infix-ops": 1,
+    "camelcase": 0,
+    "no-spaced-func": 1,
+    "no-alert": 1,
     "eol-last": 1,
-    "quotes": [2, "single"],
-    "jsx-quotes": 1,
-    "react/jsx-no-undef": 1,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1
+    "comma-spacing": 1,
+    "eqeqeq": 1,
+
+    // possible errors
+    "comma-dangle": 0,
+    "no-cond-assign": 2,
+    "no-console": 0,
+    "no-constant-condition": 2,
+    "no-control-regex": 2,
+    "no-debugger": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-duplicate-case": 2,
+    "no-empty-character-class": 2,
+    "no-empty": 2,
+    "no-ex-assign": 2,
+    "no-extra-boolean-cast": 2,
+    "no-extra-parens": 0,
+    "no-extra-semi": 2,
+    "no-func-assign": 2,
+    "no-inner-declarations": 2,
+    "no-invalid-regexp": 2,
+    "no-irregular-whitespace": 2,
+    "no-negated-in-lhs": 2,
+    "no-obj-calls": 2,
+    "no-regex-spaces": 2,
+    "no-sparse-arrays": 2,
+    "no-unexpected-multiline": 2,
+    "no-unreachable": 2,
+    "use-isnan": 2,
+    "valid-jsdoc": 2,
+    "valid-typeof": 2,
+
+    "no-redeclare": 2,
+
+    "init-declarations": 2,
+    "no-catch-shadow": 2,
+    "no-delete-var": 2,
+    "no-label-var": 2,
+    "no-shadow-restricted-names": 2,
+    "no-shadow": 2,
+    "no-undef-init": 2,
+    "no-undef": 2,
+    "no-undefined": 2,
+    "no-unused-vars": 2,
+    "no-use-before-define": 2,
+
+    // promise
+    "promise/param-names": 2,
+    "promise/always-return": 2,
+    // "promise/always-catch": 2, // deprecated
+    "promise/catch-or-return": 2,
+    "promise/no-native": 0,
   }
 }
