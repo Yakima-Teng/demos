@@ -1,7 +1,7 @@
 import React from 'react'
 import uuid from 'node-uuid'
 
-export default class appHeader extends React.Component {
+export default class slider3dCss extends React.Component {
   constructor (props) {
     super(props)
     this.state = {

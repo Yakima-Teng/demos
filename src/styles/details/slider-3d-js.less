@@ -1,0 +1,39 @@
+@import './slider-3d-css.less';
+.slider-3d-js {
+  .slider {
+    .slider-3d-css();
+    .container-whole {
+      animation: none;
+    }
+  }
+  .controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 30px;
+    font-size: 0;
+    text-align: center;
+    .li {
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #1a77e0;
+      color: rgba(255, 246, 254, 1);
+      padding: 0 5px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .label, .input {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+    .input {
+      width: 5em;
+      color: #000;
+      margin-left: 10px;
+    }
+  }
+}
