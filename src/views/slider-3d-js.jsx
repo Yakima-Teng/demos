@@ -138,7 +138,7 @@ export default class slider3dJs extends React.Component {
     return (
       <div className="slider-3d-js">
         <div className="slider">
-          // stage for 六面体整体
+          {/* stage for 六面体整体 */}
           <div className="stage-whole">
             <ul className="container-whole">{lis}</ul>
           </div>
