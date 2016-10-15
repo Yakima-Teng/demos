@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Yakima-Teng/react-template#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "node-uuid": "^1.4.7",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

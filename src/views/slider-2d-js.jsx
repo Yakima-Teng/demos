@@ -1,5 +1,6 @@
 import React from 'react'
 import uuid from 'node-uuid'
+import classnames from 'classnames'
 
 export default class appHeader extends React.Component {
   constructor (props) {
@@ -83,26 +84,30 @@ export default class appHeader extends React.Component {
       return (
         <li className="photo" key={uuid.v4()} style={{
           display: this.isCurIndexPicture(item.url) ? 'block' : 'none'
-        }} onMouseEnter={this.stopInterval.bind(this)} onMouseLeave={this.startInterval.bind(this)}>
+        }}>
           <img className="photo-img" src={item.url} alt={item.title} />
         </li>
       )
     })
     const lis2 = this.state.images16.map((item, idx) => {
       // 如果不用括号的话，'point' + this.isCurIndexPicture(item.url)整体会作为一个表达式
+      // todo: 这里的动画失效了，可能原因是footer父节点节点都被重新渲染了
       return (
         <div
           key={uuid.v4()}
-          className={'point' + (this.isCurIndexPicture(item.url) ? ' scale' : '')}
+          className={classnames({
+            'point': true,
+            'scale': this.isCurIndexPicture(item.url)
+          })}
           style={{
             backgroundImage: `url(${item.url})`
           }}
-          onMouseOver={this.showPic.bind(this, idx)}></div>
+          onMouseEnter={() => this.showPic(idx)}></div>
       )
     })
     return (
       <div className="slider-2d-js">
-        <section className="gallery">
+        <section onMouseEnter={this.stopInterval.bind(this)} onMouseLeave={this.startInterval.bind(this)} className="gallery">
           <ul className="photos">{lis1}</ul>
           <aside onClick={this.showPrevPic.bind(this)} className="arr arr-left"><i className="fa fa-chevron-left"></i></aside>
           <aside onClick={this.showNextPic.bind(this)} className="arr arr-right"><i className="fa fa-chevron-right"></i></aside>
@@ -138,13 +143,12 @@ export default class appHeader extends React.Component {
       this.setState({curIndex: this.state.curIndex + 1})
     }
   }
-  showPic (picIndex) {
+  // ES7 property initializer, used here only for reference how to pass parameter
+  // personally, I use bind method to bind this
+  showPic = picIndex => {
     console.log(picIndex)
     this.setState({
       curIndex: picIndex
     })
-  }
-  test = () => {
-    console.log('dddd')
   }
 }
