@@ -79,6 +79,9 @@ export default class appHeader extends React.Component {
   componentDidMount () {
     this.startInterval()
   }
+  componentWillUnmount () {
+    this.stopInterval()
+  }
   render () {
     const lis1 = this.state.images16.map(item => {
       return (
