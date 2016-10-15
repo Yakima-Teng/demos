@@ -1,10 +1,13 @@
 module.exports = {
-  "extends": "plugin:react/recommended",
+  // "extends": "plugin:react/recommended",
+  "extends": "eslint:recommended",
   "env": {
     "browser": true,
-    "node": true,
-    "es6": true
+    "node": true
+    // "es6": true
   },
+  // support ES7 property initializer (class static method)
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -21,6 +24,15 @@ module.exports = {
     "promise"
   ],
   "rules": {
+    "new-cap": 0,
+    "strict": 0,
+    "no-underscore-dangle": 0,
+    // "no-use-before-define": 0,
+    "quotes": [2, "single"],
+    "jsx-quotes": 1,
+    "react/jsx-no-undef": 1,
+    "react/jsx-uses-react": 1,
+
     "react/jsx-uses-vars": 1,
     "react/prop-types": [1, { ignore: ["children"] }],
 
