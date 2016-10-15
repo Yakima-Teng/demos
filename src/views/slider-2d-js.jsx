@@ -109,14 +109,11 @@ export default class appHeader extends React.Component {
   }
   isCurIndexPicture (picUrl) {
     const picIndex = picUrl.match(/\/(\d*)\.jpg/)[0].replace(/\/(\d*)\.jpg/, '$1')
-    console.log(picIndex)
     return parseInt(picIndex) === parseInt(this.state.curIndex) + 1
   }
   startInterval () {}
   stopInterval () {}
   showPrePic () {}
   showNextPic () {}
-  showPic (index) {
-    console.log(index)
-  }
+  showPic () {}
 }

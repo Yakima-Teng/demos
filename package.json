@@ -24,9 +24,7 @@
     "node-uuid": "^1.4.7",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.8.1",
-    "redux": "^3.6.0"
+    "react-router": "^2.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -57,7 +55,6 @@
     "less-loader": "^2.2.3",
     "open-browser-webpack-express-plugin": "^0.0.3",
     "ora": "^0.3.0",
-    "redux-devtools": "^3.3.1",
     "shelljs": "^0.6.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
