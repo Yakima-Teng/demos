@@ -130,7 +130,9 @@ export default class appHeader extends React.Component {
     }, 2000)})
   }
   stopInterval () {
-    clearInterval(this.state.timer)
+    if (this.state.timer) {
+      clearInterval(this.state.timer)
+    }
   }
   showPrevPic () {
     if (this.state.curIndex === 0) {
