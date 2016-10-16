@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "react-webpack-boilerplate",
   "version": "1.0.0",
   "description": "just a react scoffolding tool to enable you to focus more time on project its own other than writing configuration files",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yakima-Teng/react-template.git"
+    "url": "git+https://github.com/Yakima-Teng/react-webpack-boilerplate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Yakima-Teng/react-template/issues"
+    "url": "https://github.com/Yakima-Teng/react-webpack-boilerplate/issues"
   },
-  "homepage": "https://github.com/Yakima-Teng/react-template#readme",
+  "homepage": "https://github.com/Yakima-Teng/react-webpack-boilerplate#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "jquery": "^3.1.1",
