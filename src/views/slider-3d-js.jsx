@@ -181,14 +181,17 @@ export default class slider3dJs extends React.Component {
     e.persist()
     let w = $(e.target).width()
     let h = $(e.target).height()
+    // console.log(w)
     // this.setState({timer: setInterval(() => {
     //   // bug: 宽度值变了
-    //   // console.log($(e.target).width())
+    //   console.log($(e.target))
+    //   console.log($(e.target).width())
     //   this.cool(e, w, h)
     // }, 600)})
     this.cool(e, w, h)
   }
   stopInterval () {
+    // console.log(this.state.timer)
     if (this.state.timer) {
       clearInterval(this.state.timer)
     }
@@ -205,7 +208,7 @@ export default class slider3dJs extends React.Component {
     })
   }
   startTransform = (direction, degree) => {
-    console.log(direction)
+    // console.log(direction)
     degree = parseInt(degree)
     let transformString = $('.container-whole').get(0).style.webkitTransform || 'rotateX(0deg) rotateY(0deg) rotateZ(0deg)'
     // 度数可为负值，判断正则的时候需要注意
@@ -238,22 +241,24 @@ export default class slider3dJs extends React.Component {
     this.transform(transformString)
   }
   cool = (e, containerW, containerH) => {
-    // 说明：以可视区左上角为坐标原点，向左为y轴正方向，向上为x轴正方向
-    // 因此整个网页可视区的横纵左边均为负值
+    // 说明：以可视区左上角为坐标原点，向右为x轴正方向，向上为y轴正方向
+    // 因此整个网页可视区的纵坐标均为负值，横坐标均为正值
     // get current container-cover
     let $targetElement = $(e.target || e.srcElement)
     // get original mouse pointer offset
     let mousePosition = this.getMousePosition(e)
     let mX = mousePosition.x
-    let mY = mousePosition.y
+    let mY = 0 - mousePosition.y
+    // console.log(mX, mY)
     // get container-cover left top offset, width and height
     let containerX = $targetElement.offset().left
-    let containerY = $targetElement.offset().top
+    let containerY = 0 - $targetElement.offset().top
     // let containerW = $targetElement.width()
     // let containerH = $targetElement.height()
     // get mouse pointer position relative to container left top point
     mX = mX - containerX
     mY = mY - containerY
+    // console.log(mX, mY)
     // 以过container-cover中心点，连接该正方形四角的x形线条作为依据来判断鼠标点击的方向是上下左右中的哪个
     // 上升线段方程：y=(containerH / containerW)x - containerH
     // 下降线段方程：y=(0-containerH/containerW)x
@@ -267,6 +272,7 @@ export default class slider3dJs extends React.Component {
     // 获取上升、下降线段的y值
     let compareUpY = getCompareY(mX).yUp
     let compareDownY = getCompareY(mX).yDown
+    // console.log(compareUpY, compareDownY)
     let distanceFromCentralCircle = parseInt(Math.sqrt(Math.pow(mX - 0.5 * containerW, 2) + Math.pow(mY + 0.5 * containerH, 2)))
     let degreeStep = 1
     if (distanceFromCentralCircle < 80) {
