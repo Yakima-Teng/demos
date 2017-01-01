@@ -7,27 +7,27 @@
     height: 6px;
     z-index: 1;
     background-color: rgba(255, 255, 255, .8);
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg);
     border-radius: 70%;
-    animation: float 800ms linear 0ms infinite;
+    animation: float 3000ms linear 0ms infinite;
     opacity: 1;
     pointer-events: none;
   }
 }
 @keyframes float {
   0% {
-    top: 0;
-    transform: rotate(0deg);
+    // top: 0;
+    transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
   90% {
-    top: 60%;
-    transform: rotate(360deg);
+    // top: 60%;
+    transform: translateY(300px) rotate(360deg);
     opacity: 0;
   }
   100% {
-    top: 0;
-    transform: rotate(0deg);
+    // top: 0;
+    transform: translateY(0) rotate(0deg);
     opacity: 0;
   }
 }
