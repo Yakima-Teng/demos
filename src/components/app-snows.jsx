@@ -10,7 +10,7 @@ export default class appSnows extends React.Component {
   render () {
     const snows = this.generateSnows().map(item => {
       const style = {
-        animationDelay: `${item * 100}ms`,
+        animationDelay: `${-item * 100}ms`,
         left: `${100 * Math.random()}%`
       }
       return <div className="snow" key={item} style={style}></div>
