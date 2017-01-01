@@ -7,9 +7,9 @@
     height: 6px;
     z-index: 1;
     background-color: rgba(255, 255, 255, .8);
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     border-radius: 70%;
-    animation: float 3000ms linear 0ms infinite;
+    animation: float 3000ms ease-in-out 0ms infinite;
     opacity: 1;
     pointer-events: none;
   }
@@ -17,17 +17,17 @@
 @keyframes float {
   0% {
     // top: 0;
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
   }
   90% {
     // top: 60%;
-    transform: translateY(300px) rotate(360deg);
+    transform: translate3d(-80px, 300px, 0) rotate(360deg);
     opacity: 0;
   }
   100% {
     // top: 0;
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 0;
   }
 }
