@@ -14,6 +14,7 @@ export default class appLoading extends React.Component {
     img.src = require('../assets/magic.jpg')
     img.onload = () => {
       $('body').css({
+        'background-color': '#000',
         'background-image': `url("${img.src}")`
       })
     }
