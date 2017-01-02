@@ -290,7 +290,7 @@ export default class slider3dJs extends React.Component {
     // console.log(compareUpY, compareDownY)
     let distanceFromCentralCircle = parseInt(Math.sqrt(Math.pow(mX - 0.5 * containerW, 2) + Math.pow(mY + 0.5 * containerH, 2)))
     let degreeStep = 1
-    if (distanceFromCentralCircle < 180) {
+    if (distanceFromCentralCircle < 80) {
       // 鼠标在中间半径80的圆形区域内时为rotateY形式的旋转
       // scroll by changing value of transform rotateY
       this.startTransform('scroll', degreeStep)
