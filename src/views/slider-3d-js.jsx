@@ -130,7 +130,7 @@ export default class slider3dJs extends React.Component {
           // key={uuid.v4()}
           key={groupIdx}
           >
-          <ul onMouseEnter={this.startInterval.bind(this)} onMouseLeave={this.stopInterval.bind(this)} className="container-cover">
+          <ul onMouseMove={this.startInterval.bind(this)} onMouseLeave={this.stopInterval.bind(this)} className="container-cover">
             {group.map((pic, picIdx) => {
               return (
                 <li
@@ -196,19 +196,25 @@ export default class slider3dJs extends React.Component {
     //   }, 16)
     // })
 
-    function loopCool () {
-      _this.cool(e, w, h)
-      _this.setState({
-        timer: window.requestAnimationFrame(loopCool)
-      })
-    }
+    // _this.cool(e, w, h)
 
-    loopCool()
+    setTimeout(() => {
+      _this.cool(e, w, h)
+    }, 0)
+
+    // function loopCool () {
+    //   _this.cool(e, w, h)
+    //   _this.setState({
+    //     timer: window.requestAnimationFrame(loopCool)
+    //   })
+    // }
+
+    // loopCool()
   }
   stopInterval () {
     if (this.state.timer) {
       // clearInterval(this.state.timer)
-      window.cancelAnimationFrame(this.state.timer)
+      // window.cancelAnimationFrame(this.state.timer)
     }
   }
   getMousePosition = e => {
