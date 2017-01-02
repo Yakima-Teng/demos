@@ -130,7 +130,7 @@ export default class slider3dJs extends React.Component {
           // key={uuid.v4()}
           key={groupIdx}
           >
-          <ul onMouseMove={this.startInterval.bind(this)} onMouseLeave={this.stopInterval.bind(this)} className="container-cover">
+          <ul onMouseEnter={this.startInterval.bind(this)} onMouseLeave={this.stopInterval.bind(this)} className="container-cover">
             {group.map((pic, picIdx) => {
               return (
                 <li
@@ -187,21 +187,28 @@ export default class slider3dJs extends React.Component {
   startInterval (e) {
     // 如果去掉e.persist()，程序会报错的
     e.persist()
+    const _this = this
     let w = $(e.target).width()
     let h = $(e.target).height()
-    // console.log(w)
-    // this.setState({timer: setInterval(() => {
-    //   // bug: 宽度值变了
-    //   console.log($(e.target))
-    //   console.log($(e.target).width())
-    //   this.cool(e, w, h)
-    // }, 600)})
-    this.cool(e, w, h)
+    // this.setState({
+    //   timer: setInterval(() => {
+    //     this.cool(e, w, h)
+    //   }, 16)
+    // })
+
+    function loopCool () {
+      _this.cool(e, w, h)
+      _this.setState({
+        timer: window.requestAnimationFrame(loopCool)
+      })
+    }
+
+    loopCool()
   }
   stopInterval () {
-    // console.log(this.state.timer)
     if (this.state.timer) {
-      clearInterval(this.state.timer)
+      // clearInterval(this.state.timer)
+      window.cancelAnimationFrame(this.state.timer)
     }
   }
   getMousePosition = e => {
