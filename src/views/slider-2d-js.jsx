@@ -97,7 +97,8 @@ export default class appHeader extends React.Component {
       // todo: 这里的动画失效了，可能原因是footer父节点节点都被重新渲染了
       return (
         <div
-          key={uuid.v4()}
+          // key={uuid.v4()}
+          key={idx}
           className={classnames({
             'point': true,
             'scale': this.isCurIndexPicture(item.url)
