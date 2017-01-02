@@ -1,5 +1,5 @@
 import React from 'react'
-import uuid from 'node-uuid'
+// import uuid from 'node-uuid'
 import classnames from 'classnames'
 
 export default class appHeader extends React.Component {
@@ -83,11 +83,15 @@ export default class appHeader extends React.Component {
     this.stopInterval()
   }
   render () {
-    const lis1 = this.state.images16.map(item => {
+    const lis1 = this.state.images16.map((item, idx) => {
       return (
-        <li className="photo" key={uuid.v4()} style={{
-          display: this.isCurIndexPicture(item.url) ? 'block' : 'none'
-        }}>
+        <li
+          className="photo"
+          // key={uuid.v4()}
+          key={idx}
+          style={{
+            display: this.isCurIndexPicture(item.url) ? 'block' : 'none'
+          }}>
           <img className="photo-img" src={item.url} alt={item.title} />
         </li>
       )

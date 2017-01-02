@@ -1,5 +1,5 @@
 import React from 'react'
-import uuid from 'node-uuid'
+// import uuid from 'node-uuid'
 import $ from 'jquery'
 
 export default class slider3dJs extends React.Component {
@@ -123,13 +123,21 @@ export default class slider3dJs extends React.Component {
         this.state.images24[4 * i + 3]
       ])
     }
-    const lis = newImages24.map(group => {
+    const lis = newImages24.map((group, groupIdx) => {
       return (
-        <li className="stage-cover" key={uuid.v4()}>
+        <li
+          className="stage-cover"
+          // key={uuid.v4()}
+          key={groupIdx}
+          >
           <ul onMouseMove={this.startInterval.bind(this)} onMouseLeave={this.stopInterval.bind(this)} className="container-cover">
-            {group.map(pic => {
+            {group.map((pic, picIdx) => {
               return (
-                <li className="stage-pic" key={uuid.v4()}>
+                <li
+                  className="stage-pic"
+                  // key={uuid.v4()}
+                  key={picIdx}
+                  >
                   <div className="container-pic">
                     <img src={pic.url} alt={pic.title} className="img"/>
                   </div>
@@ -275,7 +283,7 @@ export default class slider3dJs extends React.Component {
     // console.log(compareUpY, compareDownY)
     let distanceFromCentralCircle = parseInt(Math.sqrt(Math.pow(mX - 0.5 * containerW, 2) + Math.pow(mY + 0.5 * containerH, 2)))
     let degreeStep = 1
-    if (distanceFromCentralCircle < 80) {
+    if (distanceFromCentralCircle < 180) {
       // 鼠标在中间半径80的圆形区域内时为rotateY形式的旋转
       // scroll by changing value of transform rotateY
       this.startTransform('scroll', degreeStep)
