@@ -13,12 +13,14 @@ export default class appLoading extends React.Component {
     // 避免出现页面背景图在加载动画出现之前先出现的问题
     let numOfDownloadedPic = 0
     function oneMorePicDownloaded () {
-      if (++numOfDownloadedPic === 17) {
+      console.log(_this.refs.progressBar.className)
+      _this.refs.progressBar.style.width = ++numOfDownloadedPic / 17 * 100 + '%'
+      if (numOfDownloadedPic === 17) {
         setTimeout(() => {
           _this.setState({
             isLoading: false
           })
-        }, 300)
+        }, 900)
       }
     }
 
@@ -43,7 +45,11 @@ export default class appLoading extends React.Component {
     return (
       <div className={'app-loading' + (this.state.isLoading ? '' : ' fade-out')}>
         <div className="inner">
-          <i className="fa fa-spinner fa-pulse fa-5x"></i>
+          <div className="progress-bar-wrapper">
+            <div ref="progressBar" className="progress-bar">
+              <i className="fa fa-chrome fa-pulse fa-2x"></i>
+            </div>
+          </div>
         </div>
       </div>
     )
