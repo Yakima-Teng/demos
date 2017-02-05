@@ -9,11 +9,12 @@ import Slider2dJs from './views/slider-2d-js.jsx'
 import Slider3dCss from './views/slider-3d-css.jsx'
 import Slider3dJs from './views/slider-3d-js.jsx'
 import Note from './views/note.jsx'
+import Rainbow from './views/rainbow.jsx'
 
 /**
  * *********************************************************************************
  *                                                                                  *
- * Componenets must be uppercase
+ * Components must be uppercase
  * regular DOM is lowercase
  *                                                                                  *
  ***********************************************************************************/
@@ -38,7 +39,7 @@ class AppLayout extends React.Component {
 
 const routes = (
   <Route path="/" component={AppLayout}>
-    <IndexRoute component={Slider2dJs} />
+    <IndexRoute component={Slider3dCss} />
     <Route
       path="/slider-2d-js"
       component={Slider2dJs}
@@ -50,6 +51,10 @@ const routes = (
     <Route
       path="/slider-3d-js"
       component={Slider3dJs}
+    />
+    <Route
+      path="/rainbow"
+      component={Rainbow}
     />
     <Route
       path="/note"
@@ -76,18 +81,18 @@ render(
  *                                                                                  *
  ***********************************************************************************/
 (function () {
-  var lastTime = 0
-  var vendors = ['webkit', 'moz']
-  for (var i = 0, length = vendors.length; i < length && !window.requestAnimationFrame; i++) {
+  let lastTime = 0
+  const vendors = ['webkit', 'moz']
+  for (let i = 0, length = vendors.length; i < length && !window.requestAnimationFrame; i++) {
     window.requestAnimationFrame = window[vendors[i] + 'RequestAnimationFrame']
     // webkit中cancel方法的名称跟其他的不一样
     window.cancelAnimationFrame = window[vendors[i] + 'CancelAnimationFrame'] || window[vendors[i] + 'CancelRequestAnimationFrame']
   }
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = function (cb) {
-      var curTime = +new Date()
-      var timeToCall = Math.max(0, 16.7 - (curTime - lastTime))
-      var id = window.setTimeout(function () {
+      const curTime = +new Date()
+      const timeToCall = Math.max(0, 16.7 - (curTime - lastTime))
+      const id = window.setTimeout(function () {
         cb()
       }, timeToCall)
       lastTime = curTime + timeToCall

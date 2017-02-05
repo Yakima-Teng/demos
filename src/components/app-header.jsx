@@ -21,6 +21,10 @@ export default class appHeader extends React.Component {
         {
           title: '说明及其他',
           url: 'note'
+        },
+        {
+          title: '彩带',
+          url: 'rainbow'
         }
       ]
     }
