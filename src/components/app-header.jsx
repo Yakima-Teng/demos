@@ -23,6 +23,10 @@ export default class appHeader extends React.Component {
           url: 'rainbow'
         },
         {
+          title: '粒子效果',
+          url: 'particles'
+        },
+        {
           title: '说明及其他',
           url: 'note'
         }

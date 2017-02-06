@@ -10,6 +10,7 @@ import Slider3dCss from './views/slider-3d-css.jsx'
 import Slider3dJs from './views/slider-3d-js.jsx'
 import Note from './views/note.jsx'
 import Rainbow from './views/rainbow.jsx'
+import Particles from './views/particles.jsx'
 
 /**
  * *********************************************************************************
@@ -55,6 +56,10 @@ const routes = (
     <Route
       path="/rainbow"
       component={Rainbow}
+    />
+    <Route
+      path="/particles"
+      component={Particles}
     />
     <Route
       path="/note"
