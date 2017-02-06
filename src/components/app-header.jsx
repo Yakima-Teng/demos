@@ -19,12 +19,12 @@ export default class appHeader extends React.Component {
           url: 'slider-3d-js'
         },
         {
-          title: '说明及其他',
-          url: 'note'
-        },
-        {
           title: '彩带',
           url: 'rainbow'
+        },
+        {
+          title: '说明及其他',
+          url: 'note'
         }
       ]
     }
