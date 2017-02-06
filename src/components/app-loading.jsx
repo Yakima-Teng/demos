@@ -9,13 +9,12 @@ export default class appLoading extends React.Component {
     }
   }
   componentDidMount () {
-    var _this = this
+    const _this = this
     // 避免出现页面背景图在加载动画出现之前先出现的问题
     let numOfDownloadedPic = 0
     function oneMorePicDownloaded () {
-      console.log(_this.refs.progressBar.className)
-      _this.refs.progressBar.style.width = ++numOfDownloadedPic / 17 * 100 + '%'
-      if (numOfDownloadedPic === 17) {
+      _this.refs.progressBar.style.width = ++numOfDownloadedPic / 18 * 100 + '%'
+      if (numOfDownloadedPic === 18) {
         setTimeout(() => {
           _this.setState({
             isLoading: false
@@ -33,6 +32,10 @@ export default class appLoading extends React.Component {
       })
       oneMorePicDownloaded()
     }
+
+    const imgPiKaQiu = new Image()
+    imgPiKaQiu.src = require('../assets/pikaqiu.png')
+    imgPiKaQiu.onload = oneMorePicDownloaded
 
     // 预先加载页面所需其他图片元素
     for (var i = 1; i < 17; i++) {
