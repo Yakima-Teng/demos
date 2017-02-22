@@ -47,8 +47,6 @@ export default class Particles extends React.Component {
       animationId: null,
       particles: []
     }
-
-    window.data = this.data
   }
 
   componentDidMount () {

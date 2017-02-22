@@ -27,6 +27,10 @@ export default class appHeader extends React.Component {
           url: 'particles'
         },
         {
+          title: '不重色卡牌',
+          url: 'cards'
+        },
+        {
           title: '说明及其他',
           url: 'note'
         }
