@@ -12,6 +12,7 @@ import Note from './views/note.jsx'
 import Rainbow from './views/rainbow.jsx'
 import Particles from './views/particles.jsx'
 import Cards from './views/cards.jsx'
+import Stars from './views/stars.jsx'
 
 /**
  * *********************************************************************************
@@ -69,6 +70,10 @@ const routes = (
     <Route
       path="/cards"
       component={Cards}
+    />
+    <Route
+      path="/stars"
+      component={Stars}
     />
     <Route
       path="*"
