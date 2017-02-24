@@ -37,7 +37,7 @@ export default class Stars extends React.Component {
   render () {
     return (
       <div className="stars">
-        <canvas className="canvas" ref="starsCanvas" width="500" height="300">
+        <canvas className="canvas" ref="starsCanvas" width="800" height="600">
           Your browser does not support HTML5 Canvas API
         </canvas>
       </div>
