@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "deploy": "gh-pages -d dist",
+    "deployToGit": "gh-pages -d dist",
+    "deployToOSChina": "gh-pages -d dist -b oschina-pages -o oschina -r https://git.oschina.net/yakima/demos.git",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
