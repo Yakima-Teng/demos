@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
-import DevTools from './DevTools'
 import { Route } from 'react-router-dom'
 import AppHeader from '../components/app-header.jsx'
 import AppSnows from '../components/app-snows.jsx'
@@ -15,7 +12,7 @@ import Particles from '../views/particles.jsx'
 import Cards from '../views/cards.jsx'
 import Stars from '../views/stars.jsx'
 
-class AppLayout extends Component {
+export default class AppLayout extends Component {
   constructor (props) {
     super(props)
     this.state = {}
@@ -25,7 +22,7 @@ class AppLayout extends Component {
       <div className="app-wrapper">
         <AppHeader />
         <div className="app-content">
-          <Route path="/" component={Slider3dCss} />
+          <Route path="/" exact component={Slider3dCss} />
           <Route path="/slider-2d-js" component={Slider2dJs} />
           <Route path="/slider-3d-css" component={Slider3dCss} />
           <Route path="/slider-3d-js" component={Slider3dJs} />
@@ -42,18 +39,3 @@ class AppLayout extends Component {
     )
   }
 }
-
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <div className="height100">
-      <Route path="/" component={AppLayout} />
-      <DevTools />
-    </div>
-  </Provider>
-)
-
-Root.propTypes = {
-  store: PropTypes.object.isRequired,
-}
-
-export default Root

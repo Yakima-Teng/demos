@@ -45,7 +45,7 @@ export default class appHeader extends Component {
     const lis = this.state.menus.map(item => {
       return (
         <li className="li" key={item.url}>
-          <Link className="title" to={`${item.url}`}>{item.title}</Link>
+          <Link className="title" to={`/${item.url}`}>{item.title}</Link>
         </li>
       )
     })
