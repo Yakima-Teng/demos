@@ -16,3 +16,16 @@ const merge = exports.merge = (obj, options) => {
   }
   return obj
 }
+
+export function replaceReducer (actionType, defaultValue) {
+  return (state = defaultValue, action) => {
+    if (action.type === actionType) {
+      return action.payload
+    }
+    return state
+  }
+}
+
+export function transferParamsToQueryString (params = {}) {
+  return Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
+}

@@ -16,6 +16,7 @@ module.exports = {
     }
   },
   "globals": {
+    "Promise": true,
     "__DEV__": true,
     "__SERVER__": true
   },

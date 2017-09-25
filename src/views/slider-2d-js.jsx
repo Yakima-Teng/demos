@@ -1,81 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 // import uuid from 'node-uuid'
 import classnames from 'classnames'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export default class appHeader extends React.Component {
+class Slider2DJS extends Component {
   constructor (props) {
     super(props)
     this.state = {
       timer: null,
       curIndex: 0,
-      images16: [
-        {
-          url: './static/img/near_1200x800/01.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/02.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/03.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/04.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/05.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/06.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/07.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/08.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/09.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/10.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/11.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/12.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/13.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/14.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/15.jpg',
-          title: ''
-        },
-        {
-          url: './static/img/near_1200x800/16.jpg',
-          title: ''
-        }
-      ]
+      images16: props.images16
     }
   }
+
+  static propTypes = {
+    images16: PropTypes.array.isRequired
+  }
+
   componentDidMount () {
     this.startInterval()
   }
@@ -156,9 +99,17 @@ export default class appHeader extends React.Component {
   // ES7 property initializer, used here only for reference how to pass parameter
   // personally, I use bind method to bind this
   showPic = picIndex => {
-    console.log(picIndex)
     this.setState({
       curIndex: picIndex
     })
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
+  return {
+    images16: state.images.images16
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {})(Slider2DJS))
