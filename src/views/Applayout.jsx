@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import AppHeader from '../components/app-header.jsx'
 import AppSnows from '../components/app-snows.jsx'
 import AppLoading from '../components/app-loading.jsx'
@@ -20,7 +21,7 @@ export default class AppLayout extends Component {
   render () {
     return (
       <div className="app-wrapper">
-        <AppHeader />
+        <AppHeader curPath={this.props.location.pathname} />
         <div className="app-content">
           <Route path="/" exact component={Slider3dCss} />
           <Route path="/slider-2d-js" component={Slider2dJs} />
@@ -38,4 +39,8 @@ export default class AppLayout extends Component {
       </div>
     )
   }
+}
+
+AppLayout.propTypes = {
+  location: PropTypes.object.isRequired
 }

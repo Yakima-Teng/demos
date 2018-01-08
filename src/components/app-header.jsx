@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 export default class appHeader extends Component {
   constructor (props) {
@@ -8,35 +10,35 @@ export default class appHeader extends Component {
       menus: [
         {
           title: '2d幻灯-JS',
-          url: 'slider-2d-js'
+          url: '/slider-2d-js'
         },
         {
           title: '3d幻灯-CSS',
-          url: 'slider-3d-css'
+          url: '/slider-3d-css'
         },
         {
           title: '3d幻灯-JS',
-          url: 'slider-3d-js'
+          url: '/slider-3d-js'
         },
         {
           title: '彩带',
-          url: 'rainbow'
+          url: '/rainbow'
         },
         {
           title: '粒子效果',
-          url: 'particles'
+          url: '/particles'
         },
         {
           title: '不重色卡牌',
-          url: 'cards'
+          url: '/cards'
         },
         {
           title: '璀璨星空',
-          url: 'stars'
+          url: '/stars'
         },
         {
           title: '说明及其他',
-          url: 'note'
+          url: '/note'
         }
       ]
     }
@@ -45,7 +47,9 @@ export default class appHeader extends Component {
     const lis = this.state.menus.map(item => {
       return (
         <li className="li" key={item.url}>
-          <Link className="title" to={`/${item.url}`}>{item.title}</Link>
+          <Link className={classnames('title', {
+            'active': item.url === this.props.curPath
+          })} to={item.url}>{item.title}</Link>
         </li>
       )
     })
@@ -59,4 +63,8 @@ export default class appHeader extends Component {
       </header>
     )
   }
+}
+
+appHeader.propTypes = {
+  curPath: PropTypes.string.isRequired
 }
