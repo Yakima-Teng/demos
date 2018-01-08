@@ -20,7 +20,7 @@ export default class Stars extends React.Component {
       canvasWidth: '',
       canvasHeight: '',
       backgroundImage: require('../assets/star.jpg'),
-      title: 'PLAY BADMINTON',
+      title: 'starry sky',
       timer: null,
       dpr: window.devicePixelRatio || 1
     }
